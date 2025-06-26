@@ -22,9 +22,11 @@ const Header = () => {
   };
 
   return (
-    <>
-      {/* Contact Bar */}
-      <div className="bg-blue-600 text-white py-2 text-sm">
+    <div className="fixed top-0 w-full z-50">
+      {/* Contact Bar - Hidden when scrolled */}
+      <div className={`bg-blue-600 text-white py-2 text-sm transition-all duration-300 ${
+        isScrolled ? 'transform -translate-y-full opacity-0' : 'transform translate-y-0 opacity-100'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
@@ -52,7 +54,7 @@ const Header = () => {
 
       {/* Main Header */}
       <header 
-        className={`fixed top-8 w-full z-50 transition-all duration-300 ${
+        className={`transition-all duration-300 ${
           isScrolled 
             ? 'bg-white/95 backdrop-blur-md shadow-lg' 
             : 'bg-transparent'
@@ -109,7 +111,7 @@ const Header = () => {
           )}
         </div>
       </header>
-    </>
+    </div>
   );
 };
 
