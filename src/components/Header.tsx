@@ -22,42 +22,42 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed top-0 w-full z-50">
-      {/* Contact Bar - Hidden when scrolled */}
-      <div className={`bg-blue-600 text-white py-2 text-sm transition-all duration-300 ${
-        isScrolled ? 'transform -translate-y-full opacity-0' : 'transform translate-y-0 opacity-100'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-6">
-              <a 
-                href="tel:+15551234567" 
-                className="flex items-center space-x-2 hover:text-blue-200 transition-colors"
-              >
-                <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
-              </a>
-              <a 
-                href="mailto:hello@ppmai.dev" 
-                className="hidden sm:flex items-center space-x-2 hover:text-blue-200 transition-colors"
-              >
-                <Mail className="h-4 w-4" />
-                <span>hello@ppmai.dev</span>
-              </a>
-            </div>
-            <div className="hidden md:block text-blue-100">
-              Professional Web Development Services
+    <>
+      {/* Contact Bar - Only visible when not scrolled */}
+      {!isScrolled && (
+        <div className="fixed top-0 w-full z-50 bg-blue-600 text-white py-2 text-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-6">
+                <a 
+                  href="tel:+15551234567" 
+                  className="flex items-center space-x-2 hover:text-blue-200 transition-colors"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span>+1 (555) 123-4567</span>
+                </a>
+                <a 
+                  href="mailto:hello@ppmai.dev" 
+                  className="hidden sm:flex items-center space-x-2 hover:text-blue-200 transition-colors"
+                >
+                  <Mail className="h-4 w-4" />
+                  <span>hello@ppmai.dev</span>
+                </a>
+              </div>
+              <div className="hidden md:block text-blue-100">
+                Professional Web Development Services
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main Header */}
       <header 
-        className={`transition-all duration-300 ${
+        className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-            : 'bg-transparent'
+            ? 'top-0 bg-white/95 backdrop-blur-md shadow-lg' 
+            : 'top-8 bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,7 +111,7 @@ const Header = () => {
           )}
         </div>
       </header>
-    </div>
+    </>
   );
 };
 
