@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Code, Phone, Mail } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -79,12 +78,10 @@ const Header = () => {
                   {item}
                 </button>
               ))}
-              <ThemeToggle />
             </nav>
 
-            {/* Mobile Menu Button & Theme Toggle */}
-            <div className="md:hidden flex items-center space-x-2">
-              <ThemeToggle />
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
               <button
                 className="p-1"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
